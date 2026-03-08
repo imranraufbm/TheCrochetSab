@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Crochet Sab - Handmade Custom Quality Designs</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="images/logo/Logo2.png" alt="The Crochet Sab Logo" class="logo">
+        <div>
+          <h1>The Crochet Sab</h1>
+          <p style="color: var(--white); font-size: 0.9em; margin: 0;">Handmade custom quality designs</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html">All Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="background: linear-gradient(135deg, rgba(197, 90, 125, 0.65) 0%, rgba(232, 155, 171, 0.65) 50%, rgba(245, 212, 220, 0.5) 100%), url('images/banners/hero-banner.png') center/cover; background-size: cover; background-position: center;">
+    <h2>Handmade Custom Quality Designs</h2>
+    <p>Artisan crochet pieces crafted with passion and precision</p>
+    <button class="cta-button">Explore Now</button>
+  </section>
+
+  <section class="about">
+    <h2>Why The Crochet Sab?</h2>
+    <div class="about-content">
+      <div class="about-item">
+        <h3>✨ Premium Craftsmanship</h3>
+        <p>Each piece is meticulously handmade with the finest materials and attention to detail.</p>
+      </div>
+      <div class="about-item">
+        <h3>🎨 Custom Designs</h3>
+        <p>We create unique, personalized crochet pieces tailored to your preferences.</p>
+      </div>
+      <div class="about-item">
+        <h3>❤️ Passionate Artistry</h3>
+        <p>Made with love and dedication, each item carries our commitment to excellence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <h2 class="section-title">Featured Collections</h2>
+    <div class="product-grid">
+      <div class="product">
+        <div class="product-image">
+          <img src="images/keychains/Keychain 1 Dog (1).png" alt="Cute Dog Keychain">
+        </div>
+        <div class="product-info">
+          <h3>Cute Dog Keychain</h3>
+          <p class="product-description">Adorable dog-themed handmade keychain</p>
+          <p class="price">₨ 280</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/home-decor/Floral Rose Gifts (1).png" alt="Elegant Rose Flowers">
+        </div>
+        <div class="product-info">
+          <h3>Elegant Rose Flowers</h3>
+          <p class="product-description">Stunning handcrafted rose flowers for home decoration</p>
+          <p class="price">₨ 350</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/keychains/Floral Keychain Logo.png" alt="Floral Keychain">
+        </div>
+        <div class="product-info">
+          <h3>Floral Keychain</h3>
+          <p class="product-description">Beautiful handcrafted keychain with delicate floral design</p>
+          <p class="price">₨ 250</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/wearables/Hand Gloves 1 (1).png" alt="Premium Hand Gloves">
+        </div>
+        <div class="product-info">
+          <h3>Premium Hand Gloves</h3>
+          <p class="product-description">Premium quality hand-knitted wool gloves with elegant design</p>
+          <p class="price">₨ 480</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/products/[Artistly Design]-019cb466-c0dc-7245-b381-0149d556fff7.png" alt="Classic Crochet Tote">
+        </div>
+        <div class="product-info">
+          <h3>Classic Crochet Tote</h3>
+          <p class="product-description">Large spacious tote with sturdy handles</p>
+          <p class="price">₨ 650</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 The Crochet Sab. All rights reserved.</p>
+    <p>Made with ❤️</p>
+  </footer>
+
+  <script>
+    document.querySelector('.cta-button').addEventListener('click', function() {
+      window.location.href = 'categories.html';
+    });
+
+    document.querySelectorAll('.buy-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.parentElement.querySelector('h3').textContent;
+        window.location.href = 'product-detail.html?product=' + productName.replace(/\s+/g, '-').toLowerCase();
+      });
+    });
+  </script>
+</body>
+</html>

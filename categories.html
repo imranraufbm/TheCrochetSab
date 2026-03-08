@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - The Crochet Sab</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="images/logo/logo.png" alt="The Crochet Sab Logo" class="logo">
+        <div>
+          <h1>The Crochet Sab</h1>
+          <p style="color: var(--white); font-size: 0.9em; margin: 0;">Handmade custom quality designs</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html" class="active">Categories</a>
+        <a href="products.html">All Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="min-height: 350px; background: linear-gradient(135deg, rgba(139, 71, 137, 0.8) 0%, rgba(212, 165, 217, 0.8) 100%), url('images/banners/category-banner.png') center/cover; background-size: cover; background-position: center;">
+    <h2>Our Collections</h2>
+    <p>Browse our carefully curated crochet categories</p>
+  </section>
+
+  <section class="products-section">
+    <h2 class="section-title">Product Categories</h2>
+    <div class="categories-grid">
+      <!-- Keychains & Accessories -->
+      <a href="category.html?cat=keychains" class="category-card">
+        <div class="category-image">
+          <img src="images\categories\Keychains & Accessories.png" alt="Keychains & Accessories">
+        </div>
+        <div class="category-info">
+          <h3>🔑 Keychains & Accessories</h3>
+          <p>Compact and beautiful keychain designs</p>
+          <small style="color: #999;">4 products</small>
+        </div>
+      </a>
+
+      <!-- Hand Gloves & Wearables -->
+      <a href="category.html?cat=wearables" class="category-card">
+        <div class="category-image">
+          <img src="images\categories\Hand Gloves & Wearables.png" alt="Hand Gloves & Wearables">
+        </div>
+        <div class="category-info">
+          <h3>🧤 Hand Gloves & Wearables</h3>
+          <p>Warm and comfortable for any season</p>
+          <small style="color: #999;">4 products</small>
+        </div>
+      </a>
+
+      <!-- Bags & Totes -->
+      <a href="bags.html" class="category-card">
+        <div class="category-image">
+          <img src="images/products/[Artistly Design]-019cb466-c0dc-7245-b381-0149d556fff7.png" alt="Bags & Totes">
+        </div>
+        <div class="category-info">
+          <h3>👜 Bags & Totes</h3>
+          <p>Spacious and stylish bags for everyday use</p>
+          <small style="color: #999;">9 gallery items</small>
+        </div>
+      </a>
+
+      <!-- Home Decor -->
+      <a href="category.html?cat=home-decor" class="category-card">
+        <div class="category-image">
+          <img src="images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png" alt="Home Decor">
+        </div>
+        <div class="category-info">
+          <h3>🏠 Home Decor</h3>
+          <p>Beautiful pieces to enhance your living space</p>
+          <small style="color: #999;">6 products</small>
+        </div>
+      </a>
+
+      <!-- Custom Designs -->
+      <a href="category.html?cat=custom" class="category-card">
+        <div class="category-image">
+          <img src="images/products/[Artistly Design]-019cb42f-d9ed-739c-b7a5-c26b6df8764d.png" alt="Custom Designs">
+        </div>
+        <div class="category-info">
+          <h3>✨ Custom Designs</h3>
+          <p>Personalized creations made just for you</p>
+          <small style="color: #999;">4 products</small>
+        </div>
+      </a>
+
+      <!-- Seasonal & Banners -->
+      <a href="category.html?cat=seasonal" class="category-card">
+        <div class="category-image">
+          <img src="images/products/[Artistly Design]-019cb464-0445-7234-a0bb-0c6c31f38eea.png" alt="Seasonal & Banners">
+        </div>
+        <div class="category-info">
+          <h3>🎉 Seasonal & Banners</h3>
+          <p>Perfect for holidays and special occasions</p>
+          <small style="color: #999;">4 products</small>
+        </div>
+      </a>
+
+      <!-- Gift Sets & Bundles -->
+      <a href="category.html?cat=gifts" class="category-card">
+        <div class="category-image">
+          <img src="images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede496a82b.png" alt="Gift Sets & Bundles">
+        </div>
+        <div class="category-info">
+          <h3>🎁 Gift Sets & Bundles</h3>
+          <p>Perfect present combinations and gift sets</p>
+          <small style="color: #999;">4 products</small>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 The Crochet Sab. All rights reserved.</p>
+    <p>Made with ❤️</p>
+  </footer>
+
+  <script>
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(link => {
+      const href = link.getAttribute('href');
+      if ((currentPage === '' && href === 'index.html') || currentPage === href) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

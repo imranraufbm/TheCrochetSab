@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bags Collection - The Crochet Sab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery-section {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .gallery-header h2 {
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .gallery-header p {
+      font-size: 1.1em;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-image {
+      transform: scale(1.05);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(197, 90, 125, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item-text {
+      color: white;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      color: #e89ba8;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 35px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      padding: 15px 25px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    .gallery-counter {
+      text-align: center;
+      color: white;
+      font-size: 1.1em;
+      margin-top: 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+      }
+
+      .gallery-header h2 {
+        font-size: 2em;
+      }
+
+      .lightbox-nav {
+        font-size: 25px;
+        padding: 10px 15px;
+      }
+
+      .lightbox-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="images/logo/logo.png" alt="The Crochet Sab Logo" class="logo">
+        <div>
+          <h1>The Crochet Sab</h1>
+          <p style="color: var(--white); font-size: 0.9em; margin: 0;">Handmade custom quality designs</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html">All Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="min-height: 350px; background: linear-gradient(135deg, rgba(197, 90, 125, 0.65) 0%, rgba(232, 155, 171, 0.65) 50%, rgba(245, 212, 220, 0.5) 100%), url('images/banners/hero-banner.png') center/cover; background-size: cover; background-position: center;">
+    <h2>👜 Our Bags Collection</h2>
+    <p>Explore our beautiful handcrafted bags</p>
+  </section>
+
+  <section class="breadcrumb-section" style="padding: 20px; max-width: 1200px; margin: 0 auto;">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="categories.html">Categories</a>
+      <span>/</span>
+      <span>Bags Collection</span>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="gallery-container">
+      <div class="gallery-header">
+        <h2>Bags & Totes Gallery</h2>
+        <p>Discover our spacious and stylish bags, perfect for everyday use and special occasions</p>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- Gallery items will be loaded here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <span class="lightbox-nav lightbox-prev" onclick="prevImage()">&#10094;</span>
+    <div class="lightbox-content">
+      <img class="lightbox-image" id="lightbox-image" src="" alt="Full size image">
+    </div>
+    <span class="lightbox-nav lightbox-next" onclick="nextImage()">&#10095;</span>
+    <div class="gallery-counter">
+      <span id="current-image">1</span> / <span id="total-images">0</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 The Crochet Sab. All rights reserved.</p>
+    <p>Made with ❤️</p>
+  </footer>
+
+  <script>
+    // Gallery images from the bags folder
+    const galleryImages = [
+      {
+        src: 'images/bags/Bag 1 (1).png',
+        name: 'Bag 1 - Style 1'
+      },
+      {
+        src: 'images/bags/Bag 1 (2).png',
+        name: 'Bag 1 - Style 2'
+      },
+      {
+        src: 'images/bags/Bag 1 (3).png',
+        name: 'Bag 1 - Style 3'
+      },
+      {
+        src: 'images/bags/Bag 2 (1).png',
+        name: 'Bag 2 - Style 1'
+      },
+      {
+        src: 'images/bags/Bag 2 (4).png',
+        name: 'Bag 2 - Style 4'
+      },
+      {
+        src: 'images/bags/Bag 2 (5).png',
+        name: 'Bag 2 - Style 5'
+      },
+      {
+        src: 'images/bags/Bag 2 (6).png',
+        name: 'Bag 2 - Style 6'
+      },
+      {
+        src: 'images/bags/Bag 3 (1).png',
+        name: 'Bag 3 - Style 1'
+      },
+      {
+        src: 'images/bags/Bag 3 (2).png',
+        name: 'Bag 3 - Style 2'
+      }
+    ];
+
+    let currentLightboxIndex = 0;
+
+    // Initialize gallery
+    function initGallery() {
+      const gallery = document.getElementById('gallery');
+      const totalImages = document.getElementById('total-images');
+      
+      galleryImages.forEach((image, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.onclick = () => openLightbox(index);
+        
+        item.innerHTML = `
+          <img src="${image.src}" alt="${image.name}" class="gallery-item-image">
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-text">
+              <div>🔍 View Full</div>
+              <div style="font-size: 0.8em; margin-top: 8px;">${image.name}</div>
+            </div>
+          </div>
+        `;
+        
+        gallery.appendChild(item);
+      });
+
+      totalImages.textContent = galleryImages.length;
+    }
+
+    // Lightbox functions
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      
+      lightboxImage.src = galleryImages[index].src;
+      lightboxImage.alt = galleryImages[index].name;
+      document.getElementById('current-image').textContent = index + 1;
+      
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function nextImage() {
+      currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightboxImage.src = galleryImages[currentLightboxIndex].src;
+      lightboxImage.alt = galleryImages[currentLightboxIndex].name;
+      document.getElementById('current-image').textContent = currentLightboxIndex + 1;
+    }
+
+    function prevImage() {
+      currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightboxImage.src = galleryImages[currentLightboxIndex].src;
+      lightboxImage.alt = galleryImages[currentLightboxIndex].name;
+      document.getElementById('current-image').textContent = currentLightboxIndex + 1;
+    }
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox.classList.contains('active')) {
+        if (event.key === 'ArrowRight') nextImage();
+        if (event.key === 'ArrowLeft') prevImage();
+        if (event.key === 'Escape') closeLightbox();
+      }
+    });
+
+    // Initialize when page loads
+    window.addEventListener('load', initGallery);
+  </script>
+</body>
+</html>

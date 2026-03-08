@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category - The Crochet Sab</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="images/logo/logo.png" alt="The Crochet Sab Logo" class="logo">
+        <div>
+          <h1>The Crochet Sab</h1>
+          <p style="color: var(--white); font-size: 0.9em; margin: 0;">Handmade custom quality designs</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html" class="active">All Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="min-height: 350px; background: linear-gradient(135deg, rgba(197, 90, 125, 0.65) 0%, rgba(232, 155, 171, 0.65) 50%, rgba(245, 212, 220, 0.5) 100%), url('images/banners/hero-banner.png') center/cover; background-size: cover; background-position: center;">
+    <h2 id="category-title">Category Collection</h2>
+    <p id="category-description">Discover our carefully curated selection</p>
+  </section>
+
+  <section class="products-section">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="categories.html">Categories</a>
+      <span>/</span>
+      <span id="breadcrumb-category">Category</span>
+    </div>
+
+    <div class="product-grid" id="category-products">
+      <!-- Products will be dynamically loaded here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 The Crochet Sab. All rights reserved.</p>
+    <p>Made with ❤️</p>
+  </footer>
+
+  <script>
+    // Product database by category - UPDATED CATALOG
+    const productDatabase = {
+      'keychains': {
+        title: '🔑 Keychains & Accessories',
+        description: 'Compact and beautiful keychain designs',
+        products: [
+          {
+            name: 'Cute Dog Keychain',
+            price: '₨ 280',
+            image: 'images/keychains/Keychain 1 Dog (1).png',
+            description: 'Adorable dog-themed handmade keychain'
+          },
+          {
+            name: 'Dog Keychain Variation 2',
+            price: '₨ 280',
+            image: 'images/keychains/Keychain 1 Dog (3).png',
+            description: 'Charming dog design in alternate style'
+          },
+          {
+            name: 'Floral Keychain',
+            price: '₨ 250',
+            image: 'images/keychains/Floral Keychain Logo.png',
+            description: 'Beautiful handcrafted keychain with delicate floral design'
+          },
+          {
+            name: 'Heart Charm Keychain',
+            price: '₨ 220',
+            image: 'images/products/[Artistly Design]-019cb42b-f6e0-7184-a3b1-2888bcff2a4a.png',
+            description: 'Sweet heart-shaped design perfect as a gift'
+          },
+          {
+            name: 'Rainbow Tassel Keychain',
+            price: '₨ 200',
+            image: 'images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5b63b962.png',
+            description: 'Colorful tassel design with crochet detailing'
+          },
+          {
+            name: 'Mini Pom Pom Keychain',
+            price: '₨ 180',
+            image: 'images/products/[Artistly Design]-019cb42f-d9ed-739c-b7a5-c26b6df8764d.png',
+            description: 'Adorable small pom pom with crochet attachment'
+          }
+        ]
+      },
+      'wearables': {
+        title: '🧤 Hand Gloves & Wearables',
+        description: 'Warm, comfortable, and stylish for any season',
+        products: [
+          {
+            name: 'Premium Hand Gloves',
+            price: '₨ 480',
+            image: 'images/wearables/Hand Gloves 1 (1).png',
+            description: 'Premium quality hand-knitted wool gloves with elegant design'
+          },
+          {
+            name: 'Stylish Wool Gloves',
+            price: '₨ 450',
+            image: 'images/wearables/Hand Gloves 1 (2).png',
+            description: 'Cozy and warm handmade wool gloves for winter'
+          },
+          {
+            name: 'Colorful Pattern Gloves',
+            price: '₨ 500',
+            image: 'images/wearables/Hand Gloves 1 (5).png',
+            description: 'Hand-designed patterns with vibrant colors'
+          },
+          {
+            name: 'Classic Crochet Gloves',
+            price: '₨ 420',
+            image: 'images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede3d3129f.png',
+            description: 'Traditional crochet gloves with timeless charm'
+          },
+          {
+            name: 'Fingerless Mittens',
+            price: '₨ 350',
+            image: 'images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede496a82b.png',
+            description: 'Cozy fingerless design with crochet texture'
+          },
+          {
+            name: 'Thermal Lined Gloves',
+            price: '₨ 400',
+            image: 'images/products/[Artistly Design]-019cb464-0445-7234-a0bb-0c6c31f38eea.png',
+            description: 'Warm thermal lining for extra comfort'
+          }
+        ]
+      },
+      'bags': {
+        title: '👜 Bags & Totes',
+        description: 'Spacious and stylish bags for everyday use',
+        products: [
+          {
+            name: 'Classic Crochet Tote',
+            price: '₨ 650',
+            image: 'images/products/[Artistly Design]-019cb466-c0dc-7245-b381-0149d556fff7.png',
+            description: 'Large spacious tote with sturdy handles'
+          },
+          {
+            name: 'Summer Beach Bag',
+            price: '₨ 550',
+            image: 'images/products/[Artistly Design]-019cb466-c0dd-7044-a0ac-e21fc7ef25d1.png',
+            description: 'Perfect openwork design for beach season'
+          },
+          {
+            name: 'Mini Crossbody Bag',
+            price: '₨ 450',
+            image: 'images/products/[Artistly Design]-019cb46d-d481-7116-b0ba-09b69f0d5313.png',
+            description: 'Compact bag perfect for daily essentials'
+          },
+          {
+            name: 'Patterned Shoulder Bag',
+            price: '₨ 600',
+            image: 'images/products/[Artistly Design]-019cb42f-d9f1-7166-85c9-5e61869a3e43.png',
+            description: 'Colorful design with comfortable shoulder strap'
+          }
+        ]
+      },
+      'home-decor': {
+        title: '🏠 Home Decor',
+        description: 'Beautiful pieces to enhance your living space',
+        products: [
+          {
+            name: 'Elegant Rose Flowers',
+            price: '₨ 350',
+            image: 'images/home-decor/Floral Rose Gifts (1).png',
+            description: 'Stunning handcrafted rose flowers for elegant home decoration'
+          },
+          {
+            name: 'Beautiful Floral Rose Set',
+            price: '₨ 380',
+            image: 'images/home-decor/Floral Rose Gifts (3).png',
+            description: 'Premium rose arrangement perfect for any room'
+          },
+          {
+            name: 'Decorative Rose Bouquet',
+            price: '₨ 365',
+            image: 'images/home-decor/Floral Rose Gifts (5).png',
+            description: 'Artistic floral design with beautiful rose details'
+          },
+          {
+            name: 'Rose Pair Display',
+            price: '₨ 300',
+            image: 'images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png',
+            description: 'Beautiful twin roses for home decoration'
+          },
+          {
+            name: 'Premium Wall Ornament',
+            price: '₨ 350',
+            image: 'images/products/[Artistly Design]-019cb480-792e-7112-817a-d52f873046bc.png',
+            description: 'Elegant crochet ornament for any room'
+          },
+          {
+            name: 'Floral Wall Hanging',
+            price: '₨ 400',
+            image: 'images/products/[Artistly Design]-019cb480-792e-7182-b588-a6eac5de9ff8.png',
+            description: 'Decorative floral design for wall decoration'
+          },
+          {
+            name: 'Artistic Home Piece',
+            price: '₨ 425',
+            image: 'images/products/[Artistly Design]-019cb480-792f-704e-90f0-4bf8e97cbcf2.png',
+            description: 'Unique art piece knitted with precision'
+          },
+          {
+            name: 'Decorative Centerpiece',
+            price: '₨ 375',
+            image: 'images/products/[Artistly Design]-019cb480-792f-7088-91f4-3f5f6a85c2a2.png',
+            description: 'Perfect for table decoration'
+          }
+        ]
+      },
+      'custom': {
+        title: '✨ Custom Designs',
+        description: 'Personalized creations made just for you',
+        products: [
+          {
+            name: 'Personalized Monogram',
+            price: '₨ 400',
+            image: 'images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5b63b962.png',
+            description: 'Custom initial design in your choice of colors'
+          },
+          {
+            name: 'Custom Name Plaque',
+            price: '₨ 550',
+            image: 'images/products/[Artistly Design]-019cb42b-f6e0-7184-a3b1-2888bcff2a4a.png',
+            description: 'Handmade name plaque for nursery or gifts'
+          },
+          {
+            name: 'Bespoke Design Commission',
+            price: '₨ 700+',
+            image: 'images/products/[Artistly Design]-019cb42f-d9ed-739c-b7a5-c26b6df8764d.png',
+            description: 'Create your own unique crochet design'
+          },
+          {
+            name: 'Theme-Based Creation',
+            price: '₨ 650',
+            image: 'images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede3d3129f.png',
+            description: 'Custom design based on your chosen theme'
+          }
+        ]
+      },
+      'seasonal': {
+        title: '🎉 Seasonal & Banners',
+        description: 'Decorative pieces for celebrations and special occasions',
+        products: [
+          {
+            name: 'Festive Banner Set',
+            price: '₨ 500',
+            image: 'images/products/[Artistly Design]-019cb464-0445-7234-a0bb-0c6c31f38eea.png',
+            description: 'Colorful banner for holidays and celebrations'
+          },
+          {
+            name: 'Wedding Garland Banner',
+            price: '₨ 800',
+            image: 'images/products/[Artistly Design]-019cb46d-d47e-71b3-bc97-4292678504e1.png',
+            description: 'Elegant banner for weddings and events'
+          },
+          {
+            name: 'Birthday Celebration Banner',
+            price: '₨ 450',
+            image: 'images/products/[Artistly Design]-019cb46d-d481-7116-b0ba-09b69f0d5313.png',
+            description: 'Fun and colorful birthday decoration banner'
+          },
+          {
+            name: 'Holiday Special Decor',
+            price: '₨ 600',
+            image: 'images/products/[Artistly Design]-019cb42f-dbcb-70fe-aa52-bbe7d7436afc.png',
+            description: 'Winter and holiday season decoration piece'
+          }
+        ]
+      },
+      'gifts': {
+        title: '🎁 Gift Sets & Bundles',
+        description: 'Perfect combinations and bundles for special gifts',
+        products: [
+          {
+            name: 'Deluxe Crochet Bundle',
+            price: '₨ 1,200',
+            image: 'images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5afc49c0.png',
+            description: 'Complete set of gloves, keychain, and decor'
+          },
+          {
+            name: 'Starter Gifts Set',
+            price: '₨ 900',
+            image: 'images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede496a82b.png',
+            description: 'Popular items selection ideal for gifting'
+          },
+          {
+            name: 'Premium Gift Selection',
+            price: '₨ 1,500',
+            image: 'images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png',
+            description: 'Luxury collection for the discerning gift giver'
+          },
+          {
+            name: 'Corporate Gift Package',
+            price: '₨ 2,000+',
+            image: 'images/products/[Artistly Design]-019cb466-c0dc-7245-b381-0149d556fff7.png',
+            description: 'Bulk orders available for businesses'
+          }
+        ]
+      }
+    };
+
+    // Get category from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('cat') || 'keychains';
+
+    // Load category data
+    const categoryData = productDatabase[category];
+    
+    if (categoryData) {
+      // Update page title and description
+      document.getElementById('category-title').textContent = categoryData.title;
+      document.getElementById('category-description').textContent = categoryData.description;
+      document.getElementById('breadcrumb-category').textContent = categoryData.title;
+      document.title = categoryData.title + ' - The Crochet Sab';
+
+      // Populate products
+      const productsContainer = document.getElementById('category-products');
+      categoryData.products.forEach(product => {
+        const productHTML = `
+          <div class="product">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+              <h3>${product.name}</h3>
+              <p class="product-description">${product.description}</p>
+              <p class="price">${product.price}</p>
+              <button class="buy-button" onclick="goToProduct('${product.name}')">View Details</button>
+            </div>
+          </div>
+        `;
+        productsContainer.innerHTML += productHTML;
+      });
+    } else {
+      document.getElementById('category-products').innerHTML = '<p>Category not found. Please select a valid category.</p>';
+    }
+
+    function goToProduct(productName) {
+      window.location.href = 'product-detail.html?product=' + productName.replace(/\s+/g, '-').toLowerCase();
+    }
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(link => {
+      const href = link.getAttribute('href');
+      if ((currentPage === '' && href === 'index.html') || currentPage === href) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

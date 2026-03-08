@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Products - The Crochet Sab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .products-section {
+      padding: 40px 20px;
+      background: #f9f7f4;
+    }
+    .section-divider {
+      margin: 50px 0 30px 0;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--primary-color);
+    }
+    .section-title {
+      font-size: 2.2em;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .section-subtitle {
+      color: #666;
+      font-size: 0.95em;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(197, 90, 125, 0.2);
+    }
+    .product-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f5f5f5;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .product:hover .product-image img {
+      transform: scale(1.05);
+    }
+    .product-info {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-info h3 {
+      font-size: 1.1em;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .product-description {
+      color: #666;
+      font-size: 0.85em;
+      margin-bottom: 15px;
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+    .price {
+      font-size: 1.3em;
+      color: var(--secondary-color);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .buy-button {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+      width: 100%;
+    }
+    .buy-button:hover {
+      opacity: 0.9;
+    }
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+      }
+      .section-title {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="images/logo/logo.png" alt="The Crochet Sab Logo" class="logo">
+        <div>
+          <h1>The Crochet Sab</h1>
+          <p style="color: var(--white); font-size: 0.9em; margin: 0;">Handmade custom quality designs</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html" class="active">All Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="min-height: 300px; background: linear-gradient(135deg, rgba(197, 90, 125, 0.8) 0%, rgba(232, 155, 171, 0.8) 100%); display: flex; align-items: center; justify-content: center; text-align: center;">
+    <div>
+      <h2 style="font-size: 2.5em; color: white; margin-bottom: 10px;">Complete Collection</h2>
+      <p style="color: rgba(255,255,255,0.95); font-size: 1.1em;">Explore all our handmade crochet creations organized by type</p>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <!-- KEYCHAINS & ACCESSORIES -->
+      <div class="section-divider">
+        <h2 class="section-title">🔑 Keychains & Accessories</h2>
+        <p class="section-subtitle">Compact and perfect for everyday carry</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Keychain Logo.png" alt="Floral Keychain Logo">
+          </div>
+          <div class="product-info">
+            <h3>Floral Keychain Logo</h3>
+            <p class="product-description">Beautiful handcrafted keychain with delicate floral design</p>
+            <p class="price">₨ 250</p>
+            <button class="buy-button" onclick="goToProduct('Floral Keychain Logo')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5b63b962.png" alt="Rainbow Tassel Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Rainbow Tassel Keychain</h3>
+            <p class="product-description">Colorful tassel design with crochet detailing</p>
+            <p class="price">₨ 200</p>
+            <button class="buy-button" onclick="goToProduct('Rainbow Tassel Keychain')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Heart Charm Keychain.png" alt="Heart Charm Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Heart Charm Keychain</h3>
+            <p class="product-description">Sweet heart-shaped design perfect as a gift</p>
+            <p class="price">₨ 220</p>
+            <button class="buy-button" onclick="goToProduct('Heart Charm Keychain')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42f-d9ed-739c-b7a5-c26b6df8764d.png" alt="Mini Pom Pom Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Mini Pom Pom Keychain</h3>
+            <p class="product-description">Adorable small pom pom with crochet attachment</p>
+            <p class="price">₨ 180</p>
+            <button class="buy-button" onclick="goToProduct('Mini Pom Pom Keychain')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HAND GLOVES & WEARABLES -->
+      <div class="section-divider">
+        <h2 class="section-title">🧤 Hand Gloves & Wearables</h2>
+        <p class="section-subtitle">Warm and comfortable for any season</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/wearables/Hand Gloves & Wearables.png" alt="Classic Wool Gloves">
+          </div>
+          <div class="product-info">
+            <h3>Classic Wool Gloves</h3>
+            <p class="product-description">Premium quality hand-knitted wool gloves</p>
+            <p class="price">₨ 450</p>
+            <button class="buy-button" onclick="goToProduct('Classic Wool Gloves')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Gloves 1 (7).png" alt="Fingerless Mittens">
+          </div>
+          <div class="product-info">
+            <h3>Fingerless Mittens</h3>
+            <p class="product-description">Cozy fingerless design with crochet texture</p>
+            <p class="price">₨ 350</p>
+            <button class="buy-button" onclick="goToProduct('Fingerless Mittens')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Gloves 1 (5).png" alt="Colorful Pattern Gloves">
+          </div>
+          <div class="product-info">
+            <h3>Colorful Pattern Gloves</h3>
+            <p class="product-description">Hand-designed patterns with vibrant colors</p>
+            <p class="price">₨ 500</p>
+            <button class="buy-button" onclick="goToProduct('Colorful Pattern Gloves')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb464-0445-7234-a0bb-0c6c31f38eea.png" alt="Thermal Lined Gloves">
+          </div>
+          <div class="product-info">
+            <h3>Thermal Lined Gloves</h3>
+            <p class="product-description">Warm thermal lining for extra comfort</p>
+            <p class="price">₨ 400</p>
+            <button class="buy-button" onclick="goToProduct('Thermal Lined Gloves')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAGS & TOTES -->
+      <div class="section-divider">
+        <h2 class="section-title">👜 Bags & Totes</h2>
+        <p class="section-subtitle">Spacious and stylish for daily use</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb466-c0dc-7245-b381-0149d556fff7.png" alt="Classic Crochet Tote">
+          </div>
+          <div class="product-info">
+            <h3>Classic Crochet Tote</h3>
+            <p class="product-description">Large spacious tote with sturdy handles</p>
+            <p class="price">₨ 650</p>
+            <button class="buy-button" onclick="goToProduct('Classic Crochet Tote')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb466-c0dd-7044-a0ac-e21fc7ef25d1.png" alt="Summer Beach Bag">
+          </div>
+          <div class="product-info">
+            <h3>Summer Beach Bag</h3>
+            <p class="product-description">Perfect openwork design for beach season</p>
+            <p class="price">₨ 550</p>
+            <button class="buy-button" onclick="goToProduct('Summer Beach Bag')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb46d-d481-7116-b0ba-09b69f0d5313.png" alt="Mini Crossbody Bag">
+          </div>
+          <div class="product-info">
+            <h3>Mini Crossbody Bag</h3>
+            <p class="product-description">Compact bag perfect for daily essentials</p>
+            <p class="price">₨ 450</p>
+            <button class="buy-button" onclick="goToProduct('Mini Crossbody Bag')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42f-d9f1-7166-85c9-5e61869a3e43.png" alt="Patterned Shoulder Bag">
+          </div>
+          <div class="product-info">
+            <h3>Patterned Shoulder Bag</h3>
+            <p class="product-description">Colorful design with comfortable shoulder strap</p>
+            <p class="price">₨ 600</p>
+            <button class="buy-button" onclick="goToProduct('Patterned Shoulder Bag')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOME DECOR -->
+      <div class="section-divider">
+        <h2 class="section-title">🏠 Home Decor</h2>
+        <p class="section-subtitle">Beautiful pieces to enhance your living space</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png" alt="Rose Pair Flowers">
+          </div>
+          <div class="product-info">
+            <h3>Rose Pair Flowers</h3>
+            <p class="product-description">Beautiful twin roses for home decoration</p>
+            <p class="price">₨ 300</p>
+            <button class="buy-button" onclick="goToProduct('Rose Pair Flowers')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-792e-7112-817a-d52f873046bc.png" alt="Premium Wall Ornament">
+          </div>
+          <div class="product-info">
+            <h3>Premium Wall Ornament</h3>
+            <p class="product-description">Elegant crochet ornament for any room</p>
+            <p class="price">₨ 350</p>
+            <button class="buy-button" onclick="goToProduct('Premium Wall Ornament')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-792e-7182-b588-a6eac5de9ff8.png" alt="Floral Wall Hanging">
+          </div>
+          <div class="product-info">
+            <h3>Floral Wall Hanging</h3>
+            <p class="product-description">Decorative floral design for wall decoration</p>
+            <p class="price">₨ 400</p>
+            <button class="buy-button" onclick="goToProduct('Floral Wall Hanging')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-792f-704e-90f0-4bf8e97cbcf2.png" alt="Artistic Home Piece">
+          </div>
+          <div class="product-info">
+            <h3>Artistic Home Piece</h3>
+            <p class="product-description">Unique art piece knitted with precision</p>
+            <p class="price">₨ 425</p>
+            <button class="buy-button" onclick="goToProduct('Artistic Home Piece')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-792f-7088-91f4-3f5f6a85c2a2.png" alt="Decorative Centerpiece">
+          </div>
+          <div class="product-info">
+            <h3>Decorative Centerpiece</h3>
+            <p class="product-description">Perfect for table decoration</p>
+            <p class="price">₨ 375</p>
+            <button class="buy-button" onclick="goToProduct('Decorative Centerpiece')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-7930-7194-b8eb-f065879239db.png" alt="Premium Ornamental Piece">
+          </div>
+          <div class="product-info">
+            <h3>Premium Ornamental Piece</h3>
+            <p class="product-description">Luxury crochet ornament for display</p>
+            <p class="price">₨ 475</p>
+            <button class="buy-button" onclick="goToProduct('Premium Ornamental Piece')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOM DESIGNS -->
+      <div class="section-divider">
+        <h2 class="section-title">✨ Custom Designs</h2>
+        <p class="section-subtitle">Personalized creations made just for you</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5b63b962.png" alt="Personalized Monogram">
+          </div>
+          <div class="product-info">
+            <h3>Personalized Monogram</h3>
+            <p class="product-description">Custom initial design in your choice of colors</p>
+            <p class="price">₨ 400</p>
+            <button class="buy-button" onclick="goToProduct('Personalized Monogram')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42b-f6e0-7184-a3b1-2888bcff2a4a.png" alt="Custom Name Plaque">
+          </div>
+          <div class="product-info">
+            <h3>Custom Name Plaque</h3>
+            <p class="product-description">Handmade name plaque for nursery or gifts</p>
+            <p class="price">₨ 550</p>
+            <button class="buy-button" onclick="goToProduct('Custom Name Plaque')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42f-d9ed-739c-b7a5-c26b6df8764d.png" alt="Bespoke Design Commission">
+          </div>
+          <div class="product-info">
+            <h3>Bespoke Design Commission</h3>
+            <p class="product-description">Create your own unique crochet design</p>
+            <p class="price">₨ 700+</p>
+            <button class="buy-button" onclick="goToProduct('Bespoke Design Commission')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede3d3129f.png" alt="Theme-Based Creation">
+          </div>
+          <div class="product-info">
+            <h3>Theme-Based Creation</h3>
+            <p class="product-description">Custom design based on your chosen theme</p>
+            <p class="price">₨ 650</p>
+            <button class="buy-button" onclick="goToProduct('Theme-Based Creation')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEASONAL & BANNERS -->
+      <div class="section-divider">
+        <h2 class="section-title">🎉 Seasonal & Banners</h2>
+        <p class="section-subtitle">Perfect for holidays and special occasions</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb464-0445-7234-a0bb-0c6c31f38eea.png" alt="Festive Banner Set">
+          </div>
+          <div class="product-info">
+            <h3>Festive Banner Set</h3>
+            <p class="product-description">Colorful banner for holidays and celebrations</p>
+            <p class="price">₨ 500</p>
+            <button class="buy-button" onclick="goToProduct('Festive Banner Set')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb46d-d47e-71b3-bc97-4292678504e1.png" alt="Wedding Garland Banner">
+          </div>
+          <div class="product-info">
+            <h3>Wedding Garland Banner</h3>
+            <p class="product-description">Elegant banner for weddings and events</p>
+            <p class="price">₨ 800</p>
+            <button class="buy-button" onclick="goToProduct('Wedding Garland Banner')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb46d-d481-7116-b0ba-09b69f0d5313.png" alt="Birthday Celebration Banner">
+          </div>
+          <div class="product-info">
+            <h3>Birthday Celebration Banner</h3>
+            <p class="product-description">Fun and colorful birthday decoration banner</p>
+            <p class="price">₨ 450</p>
+            <button class="buy-button" onclick="goToProduct('Birthday Celebration Banner')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42f-dbcb-70fe-aa52-bbe7d7436afc.png" alt="Holiday Special Decor">
+          </div>
+          <div class="product-info">
+            <h3>Holiday Special Decor</h3>
+            <p class="product-description">Winter and holiday season decoration piece</p>
+            <p class="price">₨ 600</p>
+            <button class="buy-button" onclick="goToProduct('Holiday Special Decor')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GIFT SETS & BUNDLES -->
+      <div class="section-divider">
+        <h2 class="section-title">🎁 Gift Sets & Bundles</h2>
+        <p class="section-subtitle">Perfect combinations for special gifts</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5afc49c0.png" alt="Deluxe Crochet Bundle">
+          </div>
+          <div class="product-info">
+            <h3>Deluxe Crochet Bundle</h3>
+            <p class="product-description">Complete set of gloves, keychain, and decor</p>
+            <p class="price">₨ 1,200</p>
+            <button class="buy-button" onclick="goToProduct('Deluxe Crochet Bundle')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede496a82b.png" alt="Starter Gifts Set">
+          </div>
+          <div class="product-info">
+            <h3>Starter Gifts Set</h3>
+            <p class="product-description">Popular items selection ideal for gifting</p>
+            <p class="price">₨ 900</p>
+            <button class="buy-button" onclick="goToProduct('Starter Gifts Set')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png" alt="Premium Gift Selection">
+          </div>
+          <div class="product-info">
+            <h3>Premium Gift Selection</h3>
+            <p class="product-description">Luxury collection for the discerning gift giver</p>
+            <p class="price">₨ 1,500</p>
+            <button class="buy-button" onclick="goToProduct('Premium Gift Selection')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/[Artistly Design]-019cb466-c0dc-7245-b381-0149d556fff7.png" alt="Corporate Gift Package">
+          </div>
+          <div class="product-info">
+            <h3>Corporate Gift Package</h3>
+            <p class="product-description">Bulk orders available for businesses</p>
+            <p class="price">₨ 2,000+</p>
+            <button class="buy-button" onclick="goToProduct('Corporate Gift Package')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROSE HAND BANDS & BRACELETS -->
+      <div class="section-divider">
+        <h2 class="section-title">💍 Rose Hand Bands & Bracelets</h2>
+        <p class="section-subtitle">Elegant wearables with rose designs</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Bands Rose 1 (1).png" alt="Delicate Rose Hand Band">
+          </div>
+          <div class="product-info">
+            <h3>Delicate Rose Hand Band</h3>
+            <p class="product-description">Beautiful rose design hand band with adjustable fit</p>
+            <p class="price">₨ 280</p>
+            <button class="buy-button" onclick="goToProduct('Delicate Rose Hand Band')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Bands Rose 1 (2).png" alt="Premium Rose Bracelet">
+          </div>
+          <div class="product-info">
+            <h3>Premium Rose Bracelet</h3>
+            <p class="product-description">Elegant rose bracelet for special occasions</p>
+            <p class="price">₨ 320</p>
+            <button class="buy-button" onclick="goToProduct('Premium Rose Bracelet')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Bands Rose 1 (3).png" alt="Floral Rose Wrist Wrap">
+          </div>
+          <div class="product-info">
+            <h3>Floral Rose Wrist Wrap</h3>
+            <p class="product-description">Comfortable wrist wrap with delicate rose pattern</p>
+            <p class="price">₨ 290</p>
+            <button class="buy-button" onclick="goToProduct('Floral Rose Wrist Wrap')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Bands Rose 1 (4).png" alt="Artistic Rose Hand Piece">
+          </div>
+          <div class="product-info">
+            <h3>Artistic Rose Hand Piece</h3>
+            <p class="product-description">Unique artistic rose hand band for collectors</p>
+            <p class="price">₨ 350</p>
+            <button class="buy-button" onclick="goToProduct('Artistic Rose Hand Piece')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Bands Rose 1 (5).png" alt="Romantic Rose Hand Wrap">
+          </div>
+          <div class="product-info">
+            <h3>Romantic Rose Hand Wrap</h3>
+            <p class="product-description">Perfect for romantic occasions and gifts</p>
+            <p class="price">₨ 310</p>
+            <button class="buy-button" onclick="goToProduct('Romantic Rose Hand Wrap')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Hand Bands Rose 1 (6).png" alt="Premium Rose Wrist Band">
+          </div>
+          <div class="product-info">
+            <h3>Premium Rose Wrist Band</h3>
+            <p class="product-description">Luxury rose design with premium quality</p>
+            <p class="price">₨ 370</p>
+            <button class="buy-button" onclick="goToProduct('Premium Rose Wrist Band')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOG KEYCHAINS COLLECTION -->
+      <div class="section-divider">
+        <h2 class="section-title">🐶 Dog Keychains Collection</h2>
+        <p class="section-subtitle">Adorable puppy designs perfect for dog lovers</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Keychain 1 Dog (1).png" alt="Golden Retriever Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Golden Retriever Keychain</h3>
+            <p class="product-description">Cute golden retriever design in crochet</p>
+            <p class="price">₨ 240</p>
+            <button class="buy-button" onclick="goToProduct('Golden Retriever Keychain')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Keychain 1 Dog (2).png" alt="Corgi Pup Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Corgi Pup Keychain</h3>
+            <p class="product-description">Adorable corgi face keychain</p>
+            <p class="price">₨ 230</p>
+            <button class="buy-button" onclick="goToProduct('Corgi Pup Keychain')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Keychain 1 Dog (3).png" alt="Friendly Poodle Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Friendly Poodle Keychain</h3>
+            <p class="product-description">Fluffy poodle design cute keychain</p>
+            <p class="price">₨ 235</p>
+            <button class="buy-button" onclick="goToProduct('Friendly Poodle Keychain')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Keychain 1 Dog (4).png" alt="Playful Puppy Keychain">
+          </div>
+          <div class="product-info">
+            <h3>Playful Puppy Keychain</h3>
+            <p class="product-description">Generic playful puppy design for any dog lover</p>
+            <p class="price">₨ 220</p>
+            <button class="buy-button" onclick="goToProduct('Playful Puppy Keychain')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREMIUM ROSE COLLECTION -->
+      <div class="section-divider">
+        <h2 class="section-title">🌹 Premium Rose Collection</h2>
+        <p class="section-subtitle">Exquisite rose designs for the sophisticated collector</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (1).png" alt="Classic Red Rose Bouquet">
+          </div>
+          <div class="product-info">
+            <h3>Classic Red Rose Bouquet</h3>
+            <p class="product-description">Timeless red roses perfect for any occasion</p>
+            <p class="price">₨ 520</p>
+            <button class="buy-button" onclick="goToProduct('Classic Red Rose Bouquet')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (2).png" alt="Romantic Pink Rose Set">
+          </div>
+          <div class="product-info">
+            <h3>Romantic Pink Rose Set</h3>
+            <p class="product-description">Beautiful pink roses ideal for special moments</p>
+            <p class="price">₨ 480</p>
+            <button class="buy-button" onclick="goToProduct('Romantic Pink Rose Set')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (3).png" alt="Elegant Multicolor Rose Arrangement">
+          </div>
+          <div class="product-info">
+            <h3>Elegant Multicolor Rose Arrangement</h3>
+            <p class="product-description">Vibrant mix of colorful rose designs</p>
+            <p class="price">₨ 560</p>
+            <button class="buy-button" onclick="goToProduct('Elegant Multicolor Rose Arrangement')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (4).png" alt="Luxury Rose Collection">
+          </div>
+          <div class="product-info">
+            <h3>Luxury Rose Collection</h3>
+            <p class="product-description">Premium collection with finest rose designs</p>
+            <p class="price">₨ 620</p>
+            <button class="buy-button" onclick="goToProduct('Luxury Rose Collection')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (5).png" alt="Enchanted Rose Garden">
+          </div>
+          <div class="product-info">
+            <h3>Enchanted Rose Garden</h3>
+            <p class="product-description">Magical rose garden design with multiple blooms</p>
+            <p class="price">₨ 650</p>
+            <button class="buy-button" onclick="goToProduct('Enchanted Rose Garden')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (6).png" alt="Signature Rose Masterpiece">
+          </div>
+          <div class="product-info">
+            <h3>Signature Rose Masterpiece</h3>
+            <p class="product-description">Our signature rose design - masterpiece quality</p>
+            <p class="price">₨ 700</p>
+            <button class="buy-button" onclick="goToProduct('Signature Rose Masterpiece')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (7).png" alt="Bespoke Rose Creation">
+          </div>
+          <div class="product-info">
+            <h3>Bespoke Rose Creation</h3>
+            <p class="product-description">Custom-designed rose piece unique to you</p>
+            <p class="price">₨ 750</p>
+            <button class="buy-button" onclick="goToProduct('Bespoke Rose Creation')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (8).png" alt="Royal Rose Ensemble">
+          </div>
+          <div class="product-info">
+            <h3>Royal Rose Ensemble</h3>
+            <p class="product-description">Elegant ensemble with regal rose designs</p>
+            <p class="price">₨ 800</p>
+            <button class="buy-button" onclick="goToProduct('Royal Rose Ensemble')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Rose Gifts (9).png" alt="Diamond Rose Collection">
+          </div>
+          <div class="product-info">
+            <h3>Diamond Rose Collection</h3>
+            <p class="product-description">Premium diamond-quality rose designs</p>
+            <p class="price">₨ 850</p>
+            <button class="buy-button" onclick="goToProduct('Diamond Rose Collection')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORAL GIFT SETS -->
+      <div class="section-divider">
+        <h2 class="section-title">💐 Floral Gift Sets</h2>
+        <p class="section-subtitle">Perfect combinations of floral designs for gifting</p>
+      </div>
+      <div class="product-grid">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Gifts and Keychains (1).png" alt="Floral Trio Gift Set">
+          </div>
+          <div class="product-info">
+            <h3>Floral Trio Gift Set</h3>
+            <p class="product-description">Three delicate floral designs combined</p>
+            <p class="price">₨ 720</p>
+            <button class="buy-button" onclick="goToProduct('Floral Trio Gift Set')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Gifts and Keychains (2).png" alt="Deluxe Floral Bundle">
+          </div>
+          <div class="product-info">
+            <h3>Deluxe Floral Bundle</h3>
+            <p class="product-description">Premium floral set with matching keychains</p>
+            <p class="price">₨ 850</p>
+            <button class="buy-button" onclick="goToProduct('Deluxe Floral Bundle')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Gifts and Keychains (3).png" alt="Garden Flower Collection">
+          </div>
+          <div class="product-info">
+            <h3>Garden Flower Collection</h3>
+            <p class="product-description">Assorted garden flowers in beautiful designs</p>
+            <p class="price">₨ 790</p>
+            <button class="buy-button" onclick="goToProduct('Garden Flower Collection')">View Details</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/products/Floral Gifts and Keychains (4).png" alt="Botanical Beauty Set">
+          </div>
+          <div class="product-info">
+            <h3>Botanical Beauty Set</h3>
+            <p class="product-description">Complete botanical design gift set</p>
+            <p class="price">₨ 920</p>
+            <button class="buy-button" onclick="goToProduct('Botanical Beauty Set')">View Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 The Crochet Sab. All rights reserved.</p>
+    <p>Made with ❤️</p>
+  </footer>
+
+  <script>
+    function goToProduct(productName) {
+      window.location.href = 'product-detail.html?product=' + productName.replace(/\s+/g, "-").toLowerCase();
+    }
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll("nav a").forEach(link => {
+      const href = link.getAttribute("href");
+      if ((currentPage === "" && href === "index.html") || currentPage === href) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

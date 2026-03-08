@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - The Crochet Sab</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <img src="images/logo/logo.png" alt="The Crochet Sab Logo" class="logo">
+        <div>
+          <h1>The Crochet Sab</h1>
+          <p style="color: var(--white); font-size: 0.9em; margin: 0;">Handmade custom quality designs</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html">All Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="max-width: 1200px; margin: 30px auto; padding: 0 20px;">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="products.html">Products</a>
+      <span>/</span>
+      <span id="breadcrumb-product">Product</span>
+    </div>
+
+    <div class="product-detail">
+      <!-- Gallery Section -->
+      <div class="product-gallery">
+        <div class="gallery-main">
+          <img id="main-image" src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5afc49c0.png" alt="Product Image">
+        </div>
+        <div class="gallery-thumbnails">
+          <div class="thumbnail" onclick="changeMainImage(this)">
+            <img src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5afc49c0.png" alt="View 1">
+          </div>
+          <div class="thumbnail" onclick="changeMainImage(this)">
+            <img src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5b63b962.png" alt="View 2">
+          </div>
+          <div class="thumbnail" onclick="changeMainImage(this)">
+            <img src="images/products/[Artistly Design]-019cb42f-dbca-7011-a57a-2dede3d3129f.png" alt="View 3">
+          </div>
+          <div class="thumbnail" onclick="changeMainImage(this)">
+            <img src="images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png" alt="View 4">
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Info Section -->
+      <div class="product-info">
+        <div class="product-category">Accessories</div>
+        
+        <h1 id="product-title">Floral Keychain</h1>
+        
+        <div class="product-detail .price" id="product-price">₨ 250</div>
+
+        <p class="product-detail-description">
+          Beautifully handcrafted crochet keychain featuring delicate floral designs. Each piece is made with premium quality yarn and attention to every detail. Perfect for adding a touch of artisan elegance to your keys or as a thoughtful gift for someone special.
+        </p>
+
+        <div class="product-features">
+          <h3>Features & Details</h3>
+          <ul>
+            <li>100% Premium Yarn Material</li>
+            <li>Handmade with Precision Stitching</li>
+            <li>Durable and Long-lasting</li>
+            <li>Lightweight and Portable</li>
+            <li>Available in Multiple Color Options</li>
+            <li>Perfect Gift Choice</li>
+          </ul>
+        </div>
+
+        <div class="add-to-cart">
+          <div class="quantity-selector">
+            <button onclick="decreaseQuantity()">−</button>
+            <input type="number" id="quantity" value="1" min="1" readonly>
+            <button onclick="increaseQuantity()">+</button>
+          </div>
+          <button class="buy-button" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: var(--light-bg); border-radius: 8px;">
+          <h4 style="color: var(--primary-color); margin-bottom: 10px;">Custom Orders Available</h4>
+          <p>Want a custom design or color? <a href="contact.html" style="color: var(--primary-color); text-decoration: underline;">Contact us</a> for personalized orders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products Section -->
+  <section class="related-products">
+    <h2>Related Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <div class="product-image">
+          <img src="images/products/[Artistly Design]-019cb42b-f6df-7016-8aff-af7c5b63b962.png" alt="Rainbow Tassel Keychain">
+        </div>
+        <div class="product-info">
+          <h3>Rainbow Tassel Keychain</h3>
+          <p class="product-description">Colorful tassel design with crochet detailing</p>
+          <p class="price">₨ 200</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/products/[Artistly Design]-019cb42b-f6e0-7184-a3b1-2888bcff2a4a.png" alt="Heart Charm Keychain">
+        </div>
+        <div class="product-info">
+          <h3>Heart Charm Keychain</h3>
+          <p class="product-description">Sweet heart-shaped design perfect as a gift</p>
+          <p class="price">₨ 220</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="images/products/[Artistly Design]-019cb480-792d-71ea-99ad-b37d03130739.png" alt="Rose Pair Flowers">
+        </div>
+        <div class="product-info">
+          <h3>Rose Pair Flowers</h3>
+          <p class="product-description">Beautiful twin roses for decoration</p>
+          <p class="price">₨ 300</p>
+          <button class="buy-button">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 The Crochet Sab. All rights reserved.</p>
+    <p>Made with ❤️</p>
+  </footer>
+
+  <script>
+    let quantity = 1;
+
+    function changeMainImage(element) {
+      const mainImg = document.getElementById('main-image');
+      const selectedImg = element.querySelector('img').src;
+      mainImg.src = selectedImg;
+    }
+
+    function increaseQuantity() {
+      quantity++;
+      document.getElementById('quantity').value = quantity;
+    }
+
+    function decreaseQuantity() {
+      if (quantity > 1) {
+        quantity--;
+        document.getElementById('quantity').value = quantity;
+      }
+    }
+
+    function addToCart() {
+      alert(`Added ${quantity} item(s) to cart! Contact us to complete your purchase.`);
+      quantity = 1;
+      document.getElementById('quantity').value = 1;
+    }
+  </script>
+</body>
+</html>
